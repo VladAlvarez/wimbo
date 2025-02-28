@@ -9,7 +9,7 @@ const Today = () => {
         <div>
             <div>
                 <h1>{ currentTemp}C</h1>
-                <h1>{ currentWindSpeed }KTS</h1>
+                <h1>{ currentWindSpeed }KTS test</h1>
             </div>
             <div>
                 <p>{ currentDay }</p>
