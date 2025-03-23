@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import TemperatureChart from "./components/TemperatureChart";
-import WindSpeedGraph from "./components/WindSpeedGraph";
-import RainAmountChart from "./components/RainAmountChart";
+import TemperatureChart from "./TemperatureChart";
+import WindSpeedGraph from "./WindSpeedGraph";
+import RainAmountChart from "./RainAmountChart";
 
 const WeatherDataCharts = () => {
   const [data, setData] = useState([]);

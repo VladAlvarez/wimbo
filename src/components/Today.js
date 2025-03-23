@@ -7,7 +7,7 @@ const Today = () => {
     const currentDate = `${today.getDate()} ${months[today.getMonth()]}, ${today.getFullYear()}`;
 
     return (
-        <div className="text-center font-sans">
+        <div className="font-sans">
             <div className="text-3xl font-bold">{currentDay}</div>
             <div className="text-lg text-gray-600">{currentDate}</div>
         </div>
