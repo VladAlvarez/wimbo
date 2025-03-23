@@ -1,15 +1,13 @@
-import './App.css';
+import './index.css';
+import Navbar from './components/Navbar';
 import Today from './Today'
 import WeatherData from './WeatherData';
-// import WimboBar from './WimboBar';
-// import WindDirection from './WindDirection';
 
 function App() {
   return (
     <div className="App">
+        <Navbar />
         <Today />
-        {/* <WimboBar /> */}
-        {/* <WindDirection /> */}
         <WeatherData />
     </div>
   );
