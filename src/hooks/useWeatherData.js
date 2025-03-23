@@ -14,26 +14,36 @@ const useWeatherData = () => {
       const response = await axios.get(API_ENDPOINT);
       console.log("Response Data:", response.data);
   
-      // If the data is an object and not an array, directly set it
-      if (!Array.isArray(response.data)) {
-        setData([response.data]); // Wrap in an array if needed
-      } else {
-        // If it was an array, sort it
-        const sortedData = response.data.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
-        setData(sortedData);
+      let newData = response.data;
+  
+      if (!Array.isArray(newData)) {
+        newData = [newData]; // Wrap it in an array if it's a single object
       }
   
+      // Ensure all data points have timestamps before sorting
+      const validData = newData.filter(d => d.timestamp);
+      
+      // Sort in descending order based on timestamp
+      const sortedData = validData.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+  
+      setData(sortedData);
       setLoading(false);
     } catch (err) {
       setError("Error fetching data: " + err.message);
       setLoading(false);
     }
-  };
+  };  
+
+  useEffect(() => {
+    console.log("Updated Weather Data for Charts:", data);
+  }, [data]);
   
 
   useEffect(() => {
     fetchData();
     const intervalId = setInterval(fetchData, 3600000); // Fetch every hour
+    // const intervalId = setInterval(fetchData, 60000); // Every minute for testing
+
 
     return () => clearInterval(intervalId);
   }, []);

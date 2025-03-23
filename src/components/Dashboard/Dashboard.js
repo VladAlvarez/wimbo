@@ -12,8 +12,12 @@ import { FaCloudSun, FaWind } from "react-icons/fa6";
 export const Dashboard = () => {
     const { data, loading, error } = useWeatherData();
     const [featuredChart, setFeaturedChart] = useState('wind');
-    const latestWindData = data.length > 0 ? data[data.length - 1]?.wind_speed : null;
-    console.log("Weather Data:", data);
+    const latestWindData = data.length > 0 
+        ? parseFloat(data[data.length - 1]?.wind_speed.toFixed(2)) 
+        : null;  
+    const latestTemperatureData = data.length > 0 
+        ? parseFloat(data[data.length - 1]?.temperature.toFixed(2)) 
+        : null;  
 
     const charts = [
         { key: 'wind', component: <WindSpeedGraph data={data} /> },
@@ -31,24 +35,32 @@ export const Dashboard = () => {
                             <Today />
                             <FaCloudSun className='text-7xl ml-6' />
                         </div>
-                        <p className='text-8xl'>26°C</p>
+                        {loading ? (
+                            <p className="text-3xl font-semibold text-gray-500">Loading...</p>
+                        ) : error ? (
+                            <p className="text-3xl font-semibold text-red-500">{error}</p>
+                        ) : latestWindData !== null ? (
+                            <p className="text-8xl">{latestTemperatureData}°C</p>
+                        ) : (
+                            <p className="text-3xl font-semibold text-gray-500">No data</p>
+                        )}
                     </div>
                 </div>
                 <div className="bg-gray-900 rounded-lg col-span-3 p-4">
-      <div className="flex items-center mb-2 text-gray-500">
-        <p className="text-sm mr-1">Wind</p>
-        <FaWind />
-      </div>
-      {loading ? (
-        <p className="text-3xl font-semibold text-gray-500">Loading...</p>
-      ) : error ? (
-        <p className="text-3xl font-semibold text-red-500">{error}</p>
-      ) : latestWindData !== null ? (
-        <p className="text-3xl font-semibold">{latestWindData} km/h</p>
-      ) : (
-        <p className="text-3xl font-semibold text-gray-500">No data</p>
-      )}
-    </div>
+                    <div className="flex items-center mb-2 text-gray-500">
+                        <p className="text-sm mr-1">Wind</p>
+                        <FaWind />
+                    </div>
+                    {loading ? (
+                        <p className="text-3xl font-semibold text-gray-500">Loading...</p>
+                    ) : error ? (
+                        <p className="text-3xl font-semibold text-red-500">{error}</p>
+                    ) : latestWindData !== null ? (
+                        <p className="text-3xl font-semibold">{latestWindData} km/h</p>
+                    ) : (
+                        <p className="text-3xl font-semibold text-gray-500">No data</p>
+                    )}
+                </div>
                 <div className='bg-red-700 rounded-lg col-span-3 p-4 text-center font-semibold'>
                     <p>Beep bop it's hot outside ^-^</p>
                 </div>
