@@ -10,7 +10,7 @@ const WeatherDataCharts = () => {
   const [error, setError] = useState(null);
 
   const fetchData = () => {
-    const apiEndpoint = "https://i5sfgve9pf.execute-api.us-west-2.amazonaws.com/dev/queryWeatherData";
+    const apiEndpoint = "https://i5sfgve9pf.execute-api.us-west-2.amazonaws.com/queryWeatherData";
 
     axios
       .get(apiEndpoint)
