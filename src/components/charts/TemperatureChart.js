@@ -3,9 +3,9 @@ import { AreaChart, Area, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianG
 
 const TemperatureChart = ({ data }) => {
   return (
-    <div>
+    <div className="h-full">
       <h3>Temperature (°C)</h3>
-      <ResponsiveContainer width="100%" height={300}>
+      <ResponsiveContainer width="100%" height="100%">
         <AreaChart data={data} margin={{ top: 10, right: 30, left: 0, bottom: 10 }}>
           <defs>
             <linearGradient id="colorTemp" x1="0" y1="0" x2="0" y2="1">

@@ -3,9 +3,9 @@ import { AreaChart, Area, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianG
 
 const WindSpeedGraph = ({ data }) => {
   return (
-    <div>
-      <h3>Wind Speed (m/s)</h3>
-      <ResponsiveContainer width="100%" height={300}>
+    <div className="h-full"> {/* Ensures the chart container fills its parent */}
+      <h3 className="text-white">Wind Speed (m/s)</h3>
+      <ResponsiveContainer width="100%" height="100%"> {/* Makes the chart scale fully */}
         <AreaChart data={data} margin={{ top: 10, right: 30, left: 0, bottom: 10 }}>
           <defs>
             <linearGradient id="colorWind" x1="0" y1="0" x2="0" y2="1">

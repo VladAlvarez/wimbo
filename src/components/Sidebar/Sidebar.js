@@ -5,7 +5,7 @@ import { AiFillPicture } from "react-icons/ai";
 
 const Sidebar = () => {
     return (
-        <div className="rounded-lg py-2 top-4 left-0 h-fit w-16 m-0 flex flex-col bg-gray-900 text-white shadow">
+        <div className="rounded-lg p-2 top-4 left-0 h-fit w-16 m-0 flex flex-col bg-gray-900 text-white shadow">
             <SideBarIcon icon={<MdSpaceDashboard />} text="Dashboard" link="/" />
             <SideBarIcon icon={<FaInfo />} text="About" link="/about" />
             <SideBarIcon icon={<AiFillPicture />} text="Gallery" link="/gallery" />
