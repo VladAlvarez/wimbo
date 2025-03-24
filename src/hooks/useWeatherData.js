@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { formatWeatherData } from "../utils/utils";
+// import { formatWeatherData } from "../utils/utils"; 
 
 const API_ENDPOINT = "https://i5sfgve9pf.execute-api.us-west-2.amazonaws.com/queryWeatherData";
 
@@ -24,7 +24,7 @@ const useWeatherData = () => {
       const validData = newData.filter(d => d.timestamp);
       
       // Sort in descending order based on timestamp
-      const sortedData = validData.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+      const sortedData = validData.sort((a, b) => new Date(a.timestamp) - new Date(b.timestamp));
   
       setData(sortedData);
       setLoading(false);

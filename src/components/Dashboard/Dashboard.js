@@ -39,8 +39,8 @@ export const Dashboard = () => {
                             <p className="text-3xl font-semibold text-gray-500">Loading...</p>
                         ) : error ? (
                             <p className="text-3xl font-semibold text-red-500">{error}</p>
-                        ) : latestWindData !== null ? (
-                            <p className="text-8xl">{latestTemperatureData}°C</p>
+                        ) : latestTemperatureData !== null ? (
+                            <p className="text-7xl">{latestTemperatureData}°C</p>
                         ) : (
                             <p className="text-3xl font-semibold text-gray-500">No data</p>
                         )}
